@@ -104,6 +104,7 @@ if has('gui_running')
   set background=light
   colorscheme solarized
   set guioptions=egmrt
+  set guifont=Source\ Sans\ Pro\ 10
 else
   colorscheme default
 endif
