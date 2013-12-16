@@ -104,8 +104,16 @@ if has('gui_running')
   set background=light
   colorscheme solarized
   set guioptions=egmrt
-  set guifont=Source\ Sans\ Pro\ 10
 else
   colorscheme default
 endif
+
+" OS Fonts
+if has("mac")
+  set guifont=Menlo\ 11
+elseif has("unix")
+  set guifont=Ubuntu\ Mono\ Regular\ 11
+else
+  set guifont=Courier\ New\ 11
+end
 
