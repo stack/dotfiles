@@ -112,7 +112,7 @@ endif
 if has("mac")
   set guifont=Menlo\ 11
 elseif has("unix")
-  set guifont=Ubuntu\ Mono\ Regular\ 11
+  set guifont=Ubuntu\ Mono\ Regular\ 12
 else
   set guifont=Courier\ New\ 11
 end
