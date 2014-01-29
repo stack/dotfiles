@@ -117,3 +117,7 @@ else
   set guifont=Courier\ New\ 11
 end
 
+" Ctrl-P
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+
+
