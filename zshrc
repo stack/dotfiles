@@ -20,7 +20,7 @@ DISABLE_UPDATE_PROMPT="true"
 # CASE_SENSITIVE="true"
 
 # Comment this out to disable weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="true"
 
 # Uncomment following line if you want to disable colors in ls
 # DISABLE_LS_COLORS="true"
@@ -37,6 +37,9 @@ DISABLE_UPDATE_PROMPT="true"
 plugins=(brew gem git osx rails rake ruby svn)
 
 source $ZSH/oh-my-zsh.sh
+
+# Fix sbin on Mac
+export PATH="/sbin:/usr/sbin:$PATH"
 
 # Homebrew
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
