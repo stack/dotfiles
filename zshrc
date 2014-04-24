@@ -53,3 +53,20 @@ if [[ -d "$HOME/Library/bin" ]]; then
   export PATH="$PATH:$HOME/Library/bin"
 fi
 
+# Editor
+platform='unknown'
+unamestr=`uname`
+if [[ "$unamestr" == 'Darwin' ]]; then
+  platform='macosx'
+elif [[ "$unamestr" == 'Linux' ]]; then
+  platform='linux'
+fi
+
+if [[ $platform == 'macosx' ]]; then
+  export EDITOR="mvim -f"
+elif [[ $platform == 'linux' ]]; then
+  export EDITOR="gvim -f"
+else
+  export EDITOR="vi"
+fi
+
