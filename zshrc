@@ -48,6 +48,20 @@ export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
+# NaCL SDK
+if [[ -d "/usr/local/nacl_sdk/pepper_35" ]]; then
+  export NACL_SDK_ROOT="/usr/local/nacl_sdk/pepper_35"
+elif [[ -d "/opt/nacl_sdk/pepper_35" ]]; then
+  export NACL_SDK_ROOT="/opt/nacl_sdk/pepper_35"
+fi
+
+# Depot Tools
+if [[ -d "/usr/local/depot_tools" ]]; then
+  export PATH="$PATH:/usr/local/depot_tools"
+elif [[ -d "/opt/depot_tools" ]]; then
+  export PATH="$PATH:/opt/depot_tools"
+fi
+
 # Personal bin for Mac OS X
 if [[ -d "$HOME/Library/bin" ]]; then
   export PATH="$PATH:$HOME/Library/bin"
