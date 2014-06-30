@@ -38,7 +38,7 @@ set shiftwidth=2
 set expandtab
 
 " Display extra whitespace
-set list listchars=tab:»·,trail:·
+set list listchars=trail:·
 
 " Local config
 if filereadable(".vimrc.local")
