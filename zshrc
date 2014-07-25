@@ -34,9 +34,12 @@ DISABLE_AUTO_UPDATE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(brew gem git osx rails rake ruby svn)
+plugins=(brew gem git osx rails rake ruby svn vi-mode)
 
 source $ZSH/oh-my-zsh.sh
+
+# Re-inject search
+bindkey '^R' history-incremental-search-backward
 
 # Fix sbin on Mac
 export PATH="/sbin:/usr/sbin:$PATH"

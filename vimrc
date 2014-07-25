@@ -91,7 +91,7 @@ let mapleader = ","
 map <leader>d :execute 'NERDTreeToggle'<CR>
 
 " Set up Marked for comma + m
-map <leader>m :silent !open -a Marked.app '%:p'<CR>
+map <leader>m :silent !open -a "Marked 2.app" '%:p'<CR>
 
 " Enable the arrow keys because this is future!
 unmap <Left>
