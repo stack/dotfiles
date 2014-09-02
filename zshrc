@@ -87,3 +87,4 @@ else
   export EDITOR="vi"
 fi
 
+source ~/.fzf.zsh
