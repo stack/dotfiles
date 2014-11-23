@@ -34,3 +34,9 @@
 [submodule "fzf"]
 	path = fzf
 	url = https://github.com/junegunn/fzf.git
+[submodule "vim/bundle/vim-dispatch"]
+	path = vim/bundle/vim-dispatch
+	url = https://github.com/tpope/vim-dispatch.git
+[submodule "vim/bundle/greplace.vim"]
+	path = vim/bundle/greplace.vim
+	url = https://github.com/skwp/greplace.vim.git
