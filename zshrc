@@ -51,6 +51,11 @@ export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
+# binfiles
+if [[ -d "$HOME/Development/Support/binfiles" ]]; then
+  export PATH="$HOME/Development/Support/binfiles:$PATH"
+fi
+
 # NaCL SDK
 if [[ -d "/usr/local/nacl_sdk/pepper_35" ]]; then
   export NACL_SDK_ROOT="/usr/local/nacl_sdk/pepper_35"
