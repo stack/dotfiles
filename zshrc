@@ -48,8 +48,26 @@ export PATH="/sbin:/usr/sbin:$PATH"
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 
 # rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+if [[ -d "$HOME/.rbenv/bin" ]]; then
+  export PATH="$HOME/.rbenv/bin:$PATH"
+fi
+
+command -v rbenv >/dev/null 2>&1
+
+if [ $? -eq 0 ]; then
+  eval "$(rbenv init -)"
+fi
+
+# jenv
+if [[ -d "$HOME/.jenv/bin" ]]; then
+  export PATH="$HOME/.jenv/bin:$PATH"
+fi
+
+command -v jenv >/dev/null 2>&1
+
+if [ $? -eq 0 ]; then
+  eval "$(jenv init -)"
+fi
 
 # binfiles
 if [[ -d "$HOME/Development/Support/binfiles" ]]; then
