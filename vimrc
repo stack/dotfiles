@@ -120,4 +120,8 @@ end
 " Ctrl-P
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
+" CTag generation
+:noremap <leader>t :!ctags-proj.sh<CR>
 
+" Tagbar
+nmap <leader>b :TagbarToggle<CR>

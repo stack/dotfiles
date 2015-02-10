@@ -40,3 +40,6 @@
 [submodule "vim/bundle/greplace.vim"]
 	path = vim/bundle/greplace.vim
 	url = https://github.com/skwp/greplace.vim.git
+[submodule "vim/bundle/tagbar"]
+	path = vim/bundle/tagbar
+	url = git://github.com/majutsushi/tagbar
