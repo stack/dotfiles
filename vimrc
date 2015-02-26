@@ -108,14 +108,11 @@ else
   colorscheme default
 endif
 
-" OS Fonts
-if has("mac")
-  set guifont=Menlo\ 11
-elseif has("unix")
-  set guifont=Ubuntu\ Mono\ Regular\ 12
-else
-  set guifont=Courier\ New\ 11
-end
+" Fonts
+silent! set guifont=monospace
+if &guifont != 'monospace'
+  silent set guifont=Menlo\ 11
+endif
 
 " Ctrl-P
 set runtimepath^=~/.vim/bundle/ctrlp.vim
