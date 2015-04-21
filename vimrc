@@ -37,6 +37,9 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 
+" Override for makefiles
+autocmd FileType make set noexpandtab shiftwidth=4 softtabstop=0
+
 " Display extra whitespace
 set list listchars=trail:·
 

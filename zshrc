@@ -110,4 +110,4 @@ else
   export EDITOR="vi"
 fi
 
-source ~/.fzf.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
