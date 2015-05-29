@@ -93,6 +93,8 @@ let g:html_indent_tags = 'li\|p'
 let mapleader = ","
 map <leader>d :execute 'NERDTreeToggle'<CR>
 
+let NERDTreeIgnore = [ 'ar-lib', 'compile', 'config.guess', 'config.status', 'config.sub', 'configure', 'depcomp', 'install-sh', 'libtool', 'ltmain.sh', 'missing', 'stamp-h1', 'test-driver', '\.a$', '\.la$', '\.in$', '\.o$', '\.lo$', '\~$' ]
+
 " Set up Marked for comma + m
 map <leader>m :silent !open -a "Marked 2.app" '%:p'<CR>
 

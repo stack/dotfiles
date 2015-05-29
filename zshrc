@@ -74,6 +74,17 @@ if [[ -d "$HOME/Development/Support/binfiles" ]]; then
   export PATH="$HOME/Development/Support/binfiles:$PATH"
 fi
 
+# Android SDK & NDK
+if [[ -d "/usr/local/android-sdk" ]]; then
+  export ANDROID_SDK_ROOT="/usr/local/android-sdk"
+  export PATH="$ANDROID_SDK_ROOT/tools:$ANDROID_SDK_ROOT/platform-tools:$PATH"
+fi
+
+if [[ -d "/usr/local/android-ndk" ]]; then
+  export ANDROID_NDK_ROOT="/usr/local/android-ndk"
+  export PATH="$ANDROID_NDK_ROOT:$PATH"
+fi
+
 # NaCL SDK
 if [[ -d "/usr/local/nacl_sdk/pepper_35" ]]; then
   export NACL_SDK_ROOT="/usr/local/nacl_sdk/pepper_35"
