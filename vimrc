@@ -60,6 +60,9 @@ endif
 set number
 set numberwidth=5
 
+" Always show the status bar
+set laststatus=2
+
 " Tab completion options
 set wildmode=list:longest,list:full
 set complete=.,w,t
