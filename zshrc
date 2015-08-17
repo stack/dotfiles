@@ -124,8 +124,8 @@ fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # The Fuck!?
-THEFUCK=`command -v thefuck-alias`
+THEFUCK=`command -v thefuck`
 if [ "$?" -eq "0" ]; then
-  eval "$(thefuck-alias)"
+  eval "$(thefuck --alias)"
 fi
 
