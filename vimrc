@@ -8,7 +8,10 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " Plugins
-Plugin 'Valloric/YouCompleteMe'
+if !has("win32")
+  Plugin 'Valloric/YouCompleteMe'
+endif
+
 Plugin 'scrooloose/syntastic'
 Plugin 'bling/vim-airline'
 Plugin 'elzr/vim-json'
@@ -50,11 +53,6 @@ augroup vimrcEx
     \   exe "normal g`\"" |
     \ endif
 augroup END
-
-" Local config
-if filereadable(".vimrc.local")
-  source .vimrc.local
-endif
 
 " Line Numbers
 set number
@@ -126,4 +124,15 @@ let g:syntastic_check_on_wq = 0
 
 " Gundo
 nnoremap <F5> :GundoToggle<CR>
+
+" Local config
+function! LoadLocal(path)
+  let fullPath = expand(a:path)
+  if filereadable(fullPath)
+    execute 'source '.fullPath
+  endif
+endfunction
+
+call LoadLocal("~/.vimrc.local")
+call LoadLocal("~/_vimrc.local")
 
