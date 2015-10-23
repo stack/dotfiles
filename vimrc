@@ -103,7 +103,7 @@ endif
 " Fonts
 silent! set guifont=monospace
 if &guifont != 'monospace'
-  silent set guifont=Menlo\ 11
+  silent set guifont="Menlo 11"
 endif
 
 " Tagbar
