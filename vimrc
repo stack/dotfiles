@@ -13,6 +13,7 @@ if !has("win32")
 endif
 
 Plugin 'scrooloose/syntastic'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'bling/vim-airline'
 Plugin 'elzr/vim-json'
 Plugin 'scrooloose/nerdtree'
