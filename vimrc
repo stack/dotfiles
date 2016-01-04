@@ -25,6 +25,8 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'sjl/gundo.vim'
 Plugin 'tpope/vim-sleuth'
 Plugin 'tpope/vim-surround'
+Plugin 'gfontenot/vim-xcodebuild'
+Plugin 'supermarin/xcpretty'
 
 " Color schemes
 Plugin 'altercation/vim-colors-solarized'
