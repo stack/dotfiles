@@ -27,6 +27,10 @@ Plugin 'tpope/vim-sleuth'
 Plugin 'tpope/vim-surround'
 Plugin 'gfontenot/vim-xcode'
 Plugin 'supermarin/xcpretty'
+Plugin 'pangloss/vim-javascript'
+Plugin 'othree/javascript-libraries-syntax.vim'
+Plugin 'claco/jasmine.vim'
+Plugin 'burnettk/vim-angular'
 
 " Color schemes
 Plugin 'altercation/vim-colors-solarized'
