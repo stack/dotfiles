@@ -31,6 +31,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'claco/jasmine.vim'
 Plugin 'burnettk/vim-angular'
+Plugin 'davidoc/taskpaper.vim'
 
 " Color schemes
 Plugin 'altercation/vim-colors-solarized'
