@@ -8,30 +8,25 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " Plugins
-if !has("win32")
-  Plugin 'Valloric/YouCompleteMe'
-endif
-
-Plugin 'scrooloose/syntastic'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'bling/vim-airline'
-Plugin 'elzr/vim-json'
-Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'tpope/vim-fugitive'
+Plugin 'bling/vim-airline'
+Plugin 'briancollins/vim-jst'
+Plugin 'burnettk/vim-angular'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'davidoc/taskpaper.vim'
+Plugin 'elzr/vim-json'
+Plugin 'gfontenot/vim-xcode'
 Plugin 'majutsushi/tagbar'
 Plugin 'mhinz/vim-signify'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'sjl/gundo.vim'
-Plugin 'tpope/vim-sleuth'
-Plugin 'tpope/vim-surround'
-Plugin 'gfontenot/vim-xcode'
-Plugin 'supermarin/xcpretty'
-Plugin 'pangloss/vim-javascript'
 Plugin 'othree/javascript-libraries-syntax.vim'
-Plugin 'claco/jasmine.vim'
-Plugin 'burnettk/vim-angular'
-Plugin 'davidoc/taskpaper.vim'
+Plugin 'pangloss/vim-javascript'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
+Plugin 'sjl/gundo.vim'
+Plugin 'supermarin/xcpretty'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-sleuth'
 
 " Color schemes
 Plugin 'altercation/vim-colors-solarized'
@@ -113,6 +108,9 @@ silent! set guifont=monospace
 if &guifont != 'monospace'
   silent set guifont="Menlo 11"
 endif
+
+" Ctrl-P
+let g:ctrlp_working_path_mode = ''
 
 " Tagbar
 nmap <leader>b :TagbarToggle<CR>
