@@ -16,6 +16,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'davidoc/taskpaper.vim'
 Plugin 'elzr/vim-json'
 Plugin 'gfontenot/vim-xcode'
+Plugin 'junegunn/vim-easy-align'
 Plugin 'majutsushi/tagbar'
 Plugin 'mhinz/vim-signify'
 Plugin 'othree/javascript-libraries-syntax.vim'
@@ -131,6 +132,10 @@ let g:syntastic_c_config_file = '.syntastic.conf'
 
 " Gundo
 nnoremap <F5> :GundoToggle<CR>
+
+" Vim Easy Align
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
 
 " Local config
 function! LoadLocal(path)
