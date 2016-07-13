@@ -58,6 +58,18 @@ if [ $? -eq 0 ]; then
   eval "$(rbenv init -)"
 fi
 
+# swiftenv
+if [[ -d "$HOME/.swiftenv" ]]; then
+  export SWIFTENV_ROOT="$HOME/.swiftenv"
+  export PATH="$SWIFTENV_ROOT/bin:$PATH"
+fi
+
+command -v swiftenv >/dev/null 2>&1
+
+if [ $? -eq 0 ]; then
+  eval "$(swiftenv init -)"
+fi
+
 # jenv
 if [[ -d "$HOME/.jenv/bin" ]]; then
   export PATH="$HOME/.jenv/bin:$PATH"
