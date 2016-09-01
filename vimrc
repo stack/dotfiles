@@ -12,11 +12,14 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'bling/vim-airline'
 Plugin 'briancollins/vim-jst'
 Plugin 'burnettk/vim-angular'
+Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'davidoc/taskpaper.vim'
 Plugin 'elzr/vim-json'
 Plugin 'gfontenot/vim-xcode'
 Plugin 'junegunn/vim-easy-align'
+Plugin 'keith/swift.vim'
+Plugin 'leafgarland/typescript-vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'mhinz/vim-signify'
 Plugin 'othree/javascript-libraries-syntax.vim'
@@ -27,7 +30,6 @@ Plugin 'scrooloose/syntastic'
 Plugin 'sjl/gundo.vim'
 Plugin 'supermarin/xcpretty'
 Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-sleuth'
 
 " Color schemes
 Plugin 'altercation/vim-colors-solarized'
@@ -75,6 +77,12 @@ nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
+" Use ctrl-[hjkl] to select the active split!
+nmap <silent> <c-k> :wincmd k<CR>
+nmap <silent> <c-j> :wincmd j<CR>
+nmap <silent> <c-h> :wincmd h<CR>
+nmap <silent> <c-l> :wincmd l<CR>
+
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
 
@@ -88,12 +96,6 @@ let NERDTreeIgnore = [ 'ar-lib', 'compile', 'config.guess', 'config.status', 'co
 
 " Set up Marked for comma + m
 map <leader>m :silent !open -a "Marked 2.app" '%:p'<CR>
-
-" Enable the arrow keys because this is future!
-unmap <Left>
-unmap <Right>
-unmap <Up>
-unmap <Down>
 
 " Use solarized for the color
 if has('gui_running')
@@ -136,6 +138,11 @@ nnoremap <F5> :GundoToggle<CR>
 " Vim Easy Align
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
+
+" Tab widths
+:set softtabstop=4 shiftwidth=4 expandtab
+au FileType html setl softtabstop=2 shiftwidth=4 expandtab
+au FileType ruby setl softtabstop=2 shiftwidth=4 expandtab
 
 " Local config
 function! LoadLocal(path)
