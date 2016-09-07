@@ -97,6 +97,12 @@ let NERDTreeIgnore = [ 'ar-lib', 'compile', 'config.guess', 'config.status', 'co
 " Set up Marked for comma + m
 map <leader>m :silent !open -a "Marked 2.app" '%:p'<CR>
 
+" Arrow keys are fine to use
+unmap <Left>
+unmap <Right>
+unmap <Up>
+unmap <Down>
+
 " Use solarized for the color
 if has('gui_running')
   set background=light
