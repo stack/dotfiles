@@ -112,6 +112,7 @@ else
   colorscheme default
 endif
 
+
 " Fonts
 silent! set guifont=monospace
 if &guifont != 'monospace'
