@@ -31,6 +31,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'sjl/gundo.vim'
 Plugin 'supermarin/xcpretty'
 Plugin 'tpope/vim-fugitive'
+Plugin 'vim-ruby/vim-ruby'
 
 " Color schemes
 Plugin 'altercation/vim-colors-solarized'
@@ -149,8 +150,8 @@ nmap ga <Plug>(EasyAlign)
 
 " Tab widths
 :set softtabstop=4 shiftwidth=4 expandtab
-au FileType html setl softtabstop=2 shiftwidth=4 expandtab
-au FileType ruby setl softtabstop=2 shiftwidth=4 expandtab
+au FileType html setl softtabstop=2 shiftwidth=2 expandtab
+au FileType ruby setl softtabstop=2 shiftwidth=2 expandtab
 
 " Local config
 function! LoadLocal(path)
