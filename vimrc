@@ -24,6 +24,7 @@ Plugin 'keith/swift.vim'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'mhinz/vim-signify'
+Plugin 'mileszs/ack.vim'
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'scrooloose/nerdcommenter'
@@ -144,14 +145,22 @@ let g:syntastic_check_on_wq = 0
 " Gundo
 nnoremap <F5> :GundoToggle<CR>
 
+" ACK/Ag
+if executable('ag')
+    let g:ackprg = 'ag --vimgrep'
+endif
+
+nmap <leader>a :Ack<Space>
+
+
 " Vim Easy Align
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 " Tab widths
 :set softtabstop=4 shiftwidth=4 expandtab
-au FileType html setl softtabstop=2 shiftwidth=4 expandtab
-au FileType ruby setl softtabstop=2 shiftwidth=4 expandtab
+au FileType html setl softtabstop=2 shiftwidth=2 expandtab
+au FileType ruby setl softtabstop=2 shiftwidth=2 expandtab
 
 " Local config
 function! LoadLocal(path)
