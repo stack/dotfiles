@@ -36,6 +36,11 @@ DISABLE_AUTO_UPDATE="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(adb ant brew bundler gem git github mix osx rails rake rbenv ruby svn tmux vi-mode)
 
+# Custom Local Config
+if [ -f "$HOME/.zshrc.local" ]; then
+    source "$HOME/.zshrc.local"
+fi
+
 source $ZSH/oh-my-zsh.sh
 
 # Re-inject search

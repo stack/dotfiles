@@ -11,32 +11,26 @@ Plugin 'gmarik/Vundle.vim'
 " Plugins
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'bling/vim-airline'
-Plugin 'briancollins/vim-jst'
-Plugin 'burnettk/vim-angular'
-Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'davidoc/taskpaper.vim'
-Plugin 'elixir-lang/vim-elixir'
-Plugin 'elzr/vim-json'
 Plugin 'gfontenot/vim-xcode'
 Plugin 'junegunn/vim-easy-align'
-Plugin 'keith/swift.vim'
-Plugin 'leafgarland/typescript-vim'
+Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'majutsushi/tagbar'
 Plugin 'mhinz/vim-signify'
 Plugin 'mileszs/ack.vim'
-Plugin 'othree/javascript-libraries-syntax.vim'
-Plugin 'pangloss/vim-javascript'
+Plugin 'neomake/neomake'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
+Plugin 'sheerun/vim-polyglot'
 Plugin 'sjl/gundo.vim'
 Plugin 'supermarin/xcpretty'
 Plugin 'tpope/vim-fugitive'
-Plugin 'vim-ruby/vim-ruby'
 
 " Color schemes
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'vim-airline/vim-airline-themes'
 
 " Finalize Vundle
 call vundle#end()
@@ -127,8 +121,41 @@ endif
 let g:ctrlp_working_path_mode = ''
 nnoremap <leader>. :CtrlPTag<cr>
 
+if executable('ag')
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command =
+    \ 'ag %s --files-with-matches -g "" --ignore "\.git$\|\.hg$\|\.svn$"'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+else
+  " Fall back to using git ls-files if Ag is not available
+  let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
+  let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others']
+endif
+
+" Airline
+let g:airlinetheme = "solarized"
+
 " Tagbar
 nmap <leader>b :TagbarToggle<CR>
+
+let g:tagbar_type_elixir = {
+    \ 'ctagstype' : 'elixir',
+    \ 'kinds' : [
+        \ 'f:functions',
+        \ 'functions:functions',
+        \ 'c:callbacks',
+        \ 'd:delegates',
+        \ 'e:exceptions',
+        \ 'i:implementations',
+        \ 'a:macros',
+        \ 'o:operators',
+        \ 'm:modules',
+        \ 'p:protocols',
+        \ 'r:records'
+    \ ]
+\ }
 
 " Fugitive
 set statusline+=%{fugitive#statusline()}
@@ -153,10 +180,15 @@ endif
 
 nmap <leader>a :Ack<Space>
 
-
 " Vim Easy Align
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
+
+" Gutentags
+let g:gutentags_cache_dir = '~/.tags_cache'
+
+" Neomake
+autocmd! BufWritePost * Neomake
 
 " Tab widths
 :set softtabstop=4 shiftwidth=4 expandtab
