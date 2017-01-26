@@ -13,9 +13,8 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'bling/vim-airline'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'davidoc/taskpaper.vim'
-Plugin 'gfontenot/vim-xcode'
-Plugin 'keith/swift.vim'
 Plugin 'junegunn/vim-easy-align'
+Plugin 'keith/swift.vim'
 Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'majutsushi/tagbar'
 Plugin 'mhinz/vim-signify'
@@ -26,7 +25,6 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'sjl/gundo.vim'
-Plugin 'supermarin/xcpretty'
 Plugin 'tpope/vim-fugitive'
 
 " Color schemes
@@ -208,7 +206,7 @@ nmap ga <Plug>(EasyAlign)
 let g:gutentags_cache_dir = '~/.tags_cache'
 
 " Neomake
-" autocmd! BufWritePost * Neomake
+autocmd! BufWritePost * Neomake
 
 " Tab widths
 :set softtabstop=4 shiftwidth=4 expandtab
@@ -225,4 +223,4 @@ endfunction
 
 call LoadLocal("~/.vimrc.local")
 call LoadLocal("~/_vimrc.local")
-
+call LoadLocal(".vimrc.local")
