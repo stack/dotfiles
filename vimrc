@@ -111,12 +111,14 @@ else
   colorscheme default
 endif
 
-
 " Fonts
 silent! set guifont=monospace
 if &guifont != 'monospace'
   silent set guifont="Menlo 11"
 endif
+
+" Ctag Generation
+command! MakeTags !ctags -R .
 
 " Ctrl-P
 let g:ctrlp_working_path_mode = ''
@@ -206,7 +208,7 @@ nmap ga <Plug>(EasyAlign)
 let g:gutentags_cache_dir = '~/.tags_cache'
 
 " Neomake
-autocmd! BufWritePost * Neomake
+" autocmd! BufWritePost * Neomake
 
 " Tab widths
 :set softtabstop=4 shiftwidth=4 expandtab
