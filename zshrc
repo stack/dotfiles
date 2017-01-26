@@ -138,7 +138,11 @@ else
   export EDITOR="vi"
 fi
 
+# FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Rust, Cargo, etc.
+[ -f ~/.cargo/env ] && source ~/.cargo/env
 
 # The Fuck!?
 THEFUCK=`command -v thefuck`
