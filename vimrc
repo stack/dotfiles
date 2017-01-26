@@ -68,6 +68,9 @@ set laststatus=2
 set wildmode=list:longest,list:full
 set complete=.,w,t
 
+" Allow backspacing everywhere
+set backspace=indent,eol,start " backspace over everything in insert mode
+
 " Get off my lawn
 nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
