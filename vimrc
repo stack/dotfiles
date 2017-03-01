@@ -211,7 +211,7 @@ nmap ga <Plug>(EasyAlign)
 let g:gutentags_cache_dir = '~/.tags_cache'
 
 " Neomake
-autocmd! BufWritePost * Neomake
+" autocmd! BufWritePost * Neomake
 
 " Tab widths
 :set softtabstop=4 shiftwidth=4 expandtab
