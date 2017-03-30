@@ -214,6 +214,9 @@ let g:gutentags_cache_dir = '~/.tags_cache'
 " Neomake
 " autocmd! BufWritePost * Neomake
 
+" Better Git Committs
+autocmd Filetype gitcommit setlocal spell textwidth=72
+
 " Tab widths
 :set softtabstop=4 shiftwidth=4 expandtab
 au FileType html setl softtabstop=2 shiftwidth=2 expandtab

@@ -92,13 +92,14 @@ if [[ -d "$HOME/Development/Support/binfiles" ]]; then
 fi
 
 # Android SDK & NDK
-if [[ -d "/usr/local/android-sdk" ]]; then
-  export ANDROID_SDK_ROOT="/usr/local/android-sdk"
-  export PATH="$ANDROID_SDK_ROOT/tools:$ANDROID_SDK_ROOT/platform-tools:$PATH"
+if [[ -d "$HOME/Library/Android/sdk" ]]; then
+  export ANDROID_HOME="$HOME/Library/Android/sdk"
+  export ANDROID_SDK_ROOT="$HOME/Library/Android/sdk"
+  export PATH="$ANDROID_SDK_ROOT/tools:$ANDROID_SDK_ROOT/tools/bin:$ANDROID_SDK_ROOT/platform-tools:$PATH"
 fi
 
-if [[ -d "/usr/local/android-ndk" ]]; then
-  export ANDROID_NDK_ROOT="/usr/local/android-ndk"
+if [[ -d "$HOME/Library/Android/sdk/ndk-bundle" ]]; then
+  export ANDROID_NDK_ROOT="$HOME/Library/Android/sdk/ndk-bundle"
   export PATH="$ANDROID_NDK_ROOT:$PATH"
 fi
 
