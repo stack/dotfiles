@@ -29,3 +29,5 @@ Miracast
 SQPixelBuffer
 shader
 EGL
+Submodules
+autotools

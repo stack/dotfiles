@@ -11,7 +11,9 @@ Plugin 'gmarik/Vundle.vim'
 " Plugins
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'benmills/vimux'
 Plugin 'bling/vim-airline'
+Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'davidoc/taskpaper.vim'
 Plugin 'junegunn/vim-easy-align'
@@ -85,6 +87,10 @@ nmap <silent> <c-k> :wincmd k<CR>
 nmap <silent> <c-j> :wincmd j<CR>
 nmap <silent> <c-h> :wincmd h<CR>
 nmap <silent> <c-l> :wincmd l<CR>
+
+" Split in a better direction
+set splitbelow
+set splitright
 
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
@@ -213,6 +219,11 @@ let g:gutentags_cache_dir = '~/.tags_cache'
 
 " Neomake
 " autocmd! BufWritePost * Neomake
+
+" Vimux Prompt
+map <Leader>vp :VimuxPromptCommand<CR>
+map <Leader>vl :VimuxRunLastCommand<CR>
+map <Leader>vz :VimuxZoomRunner<CR>
 
 " Better Git Committs
 autocmd Filetype gitcommit setlocal spell textwidth=72
