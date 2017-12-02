@@ -11,7 +11,6 @@ Plugin 'gmarik/Vundle.vim'
 " Plugins
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'benmills/vimux'
 Plugin 'bling/vim-airline'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -22,15 +21,14 @@ Plugin 'keith/swift.vim'
 Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'majutsushi/tagbar'
 Plugin 'mileszs/ack.vim'
-Plugin 'neomake/neomake'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'rust-lang/rust.vim'
 Plugin 'sareyko/neat.vim'
-Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
-Plugin 'sjl/gundo.vim'
+Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-sensible'
 Plugin 'vim-ruby/vim-ruby'
 
 " Color schemes
@@ -78,10 +76,10 @@ set complete=.,w,t
 set backspace=indent,eol,start " backspace over everything in insert mode
 
 " Get off my lawn
-nnoremap <Left> :echoe "Use h"<CR>
-nnoremap <Right> :echoe "Use l"<CR>
-nnoremap <Up> :echoe "Use k"<CR>
-nnoremap <Down> :echoe "Use j"<CR>
+" nnoremap <Left> :echoe "Use h"<CR>
+" nnoremap <Right> :echoe "Use l"<CR>
+" nnoremap <Up> :echoe "Use k"<CR>
+" nnoremap <Down> :echoe "Use j"<CR>
 
 " Use ctrl-[hjkl] to select the active split!
 nmap <silent> <c-k> :wincmd k<CR>
@@ -94,7 +92,7 @@ set splitbelow
 set splitright
 
 " Treat <li> and <p> tags like the block tags they are
-let g:html_indent_tags = 'li\|p'
+" let g:html_indent_tags = 'li\|p'
 
 "*** Modifications by me ***
 
@@ -102,16 +100,16 @@ let g:html_indent_tags = 'li\|p'
 let mapleader = ","
 map <leader>d :execute 'NERDTreeToggle'<CR>
 
-let NERDTreeIgnore = [ 'ar-lib', 'compile', 'config.guess', 'config.status', 'config.sub', 'configure', 'depcomp', 'install-sh', 'libtool', 'ltmain.sh', 'missing', 'stamp-h1', 'test-driver', '\.a$', '\.la$', '\.in$', '\.o$', '\.lo$', '\~$' ]
+let NERDTreeIgnore = [ 'ar-lib', 'compile', 'config.guess', 'config.status', 'config.sub', 'configure.in', 'depcomp', 'install-sh', 'libtool', 'ltmain.sh', 'missing', 'stamp-h1', 'test-driver', '\.a$', '\.la$', '\.in$', '\.o$', '\.lo$', '\~$' ]
 
 " Set up Marked for comma + m
 map <leader>m :silent !open -a "Marked 2.app" '%:p'<CR>
 
 " Arrow keys are fine to use
-unmap <Left>
-unmap <Right>
-unmap <Up>
-unmap <Down>
+" unmap <Left>
+" unmap <Right>
+" unmap <Up>
+" unmap <Down>
 
 " Use solarized for the color
 if has('gui_running')
@@ -202,9 +200,6 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_html_tidy_ignore_errors=['proprietary attribute "ng-']
 let g:syntastic_javascript_checkers = ['eslint']
 
-" Gundo
-nnoremap <F5> :GundoToggle<CR>
-
 " ACK/Ag
 if executable('ag')
     let g:ackprg = 'ag --vimgrep'
@@ -218,14 +213,6 @@ nmap ga <Plug>(EasyAlign)
 
 " Gutentags
 let g:gutentags_cache_dir = '~/.tags_cache'
-
-" Neomake
-" autocmd! BufWritePost * Neomake
-
-" Vimux Prompt
-map <Leader>vp :VimuxPromptCommand<CR>
-map <Leader>vl :VimuxRunLastCommand<CR>
-map <Leader>vz :VimuxZoomRunner<CR>
 
 " Better Git Committs
 autocmd Filetype gitcommit setlocal spell textwidth=72
