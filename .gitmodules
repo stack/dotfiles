@@ -4,6 +4,72 @@
 [submodule "fzf"]
 	path = fzf
 	url = https://github.com/junegunn/fzf.git
-[submodule "vim/bundle/Vundle.vim"]
-	path = vim/bundle/Vundle.vim
-	url = https://github.com/gmarik/Vundle.vim.git
+[submodule "vim/pack/stack/nerdtree-git-plugin"]
+	path = vim/pack/stack/start/nerdtree-git-plugin
+	url = https://github.com/Xuyuanp/nerdtree-git-plugin
+[submodule "vim/pack/stack/vim-gitgutter"]
+	path = vim/pack/stack/start/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter
+[submodule "vim/pack/stack/vim-airline"]
+	path = vim/pack/stack/start/vim-airline
+	url = https://github.com/bling/vim-airline
+[submodule "vim/pack/stack/vim-tmux-navigator"]
+	path = vim/pack/stack/start/vim-tmux-navigator
+	url = https://github.com/christoomey/vim-tmux-navigator
+[submodule "vim/pack/stack/ctrlp"]
+	path = vim/pack/stack/start/ctrlp
+	url = https://github.com/ctrlpvim/ctrlp.vim
+[submodule "vim/pack/stack/taskpaper"]
+	path = vim/pack/stack/start/taskpaper
+	url = https://github.com/davidoc/taskpaper.vim
+[submodule "vim/pack/stack/vim-elixir"]
+	path = vim/pack/stack/start/vim-elixir
+	url = https://github.com/elixir-lang/vim-elixir
+[submodule "vim/pack/stack/vim-easy-align"]
+	path = vim/pack/stack/start/vim-easy-align
+	url = https://github.com/junegunn/vim-easy-align
+[submodule "vim/pack/stack/swift"]
+	path = vim/pack/stack/start/swift
+	url = https://github.com/keith/swift.vim
+[submodule "vim/pack/stack/vim-gutentags"]
+	path = vim/pack/stack/start/vim-gutentags
+	url = https://github.com/ludovicchabant/vim-gutentags
+[submodule "vim/pack/stack/tagbar"]
+	path = vim/pack/stack/start/tagbar
+	url = https://github.com/majutsushi/tagbar
+[submodule "vim/pack/stack/ack"]
+	path = vim/pack/stack/start/ack
+	url = https://github.com/mileszs/ack.vim
+[submodule "vim/pack/stack/vim-better-whitespace"]
+	path = vim/pack/stack/start/vim-better-whitespace
+	url = https://github.com/ntpeters/vim-better-whitespace
+[submodule "vim/pack/stack/rust"]
+	path = vim/pack/stack/start/rust
+	url = https://github.com/rust-lang/rust.vim
+[submodule "vim/pack/stack/neat"]
+	path = vim/pack/stack/start/neat
+	url = https://github.com/sareyko/neat.vim
+[submodule "vim/pack/stack/nerdtree"]
+	path = vim/pack/stack/start/nerdtree
+	url = https://github.com/scrooloose/nerdtree
+[submodule "vim/pack/stack/syntastic"]
+	path = vim/pack/stack/start/syntastic
+	url = https://github.com/scrooloose/syntastic
+[submodule "vim/pack/stack/vim-commentary"]
+	path = vim/pack/stack/start/vim-commentary
+	url = https://github.com/tpope/vim-commentary
+[submodule "vim/pack/stack/vim-fugitive"]
+	path = vim/pack/stack/start/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive
+[submodule "vim/pack/stack/vim-sensible"]
+	path = vim/pack/stack/start/vim-sensible
+	url = https://github.com/tpope/vim-sensible
+[submodule "vim/pack/stack/vim-ruby"]
+	path = vim/pack/stack/start/vim-ruby
+	url = https://github.com/vim-ruby/vim-ruby
+[submodule "vim/pack/stack/vim-colors-solarized"]
+	path = vim/pack/stack/start/vim-colors-solarized
+	url = https://github.com/altercation/vim-colors-solarized
+[submodule "vim/pack/stack/vim-airline-themes"]
+	path = vim/pack/stack/start/vim-airline-themes
+	url = https://github.com/vim-airline/vim-airline-themes

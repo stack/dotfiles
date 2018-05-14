@@ -1,42 +1,43 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/Vundle.vim
-set rtp+=~/_vim/bundle/Vundle.vim
-call vundle#begin()
+"set rtp+=~/.vim/bundle/Vundle.vim
+"set rtp+=~/_vim/bundle/Vundle.vim
+"call vundle#begin()
+"
+"" Let Vundle manage itself
+"Plugin 'gmarik/Vundle.vim'
+"
+"" Plugins
+"Plugin 'Xuyuanp/nerdtree-git-plugin'
+"Plugin 'airblade/vim-gitgutter'
+"Plugin 'bling/vim-airline'
+"Plugin 'christoomey/vim-tmux-navigator'
+"Plugin 'ctrlpvim/ctrlp.vim'
+"Plugin 'davidoc/taskpaper.vim'
+"Plugin 'elixir-lang/vim-elixir'
+"Plugin 'junegunn/vim-easy-align'
+"Plugin 'keith/swift.vim'
+"Plugin 'ludovicchabant/vim-gutentags'
+"Plugin 'majutsushi/tagbar'
+"Plugin 'mileszs/ack.vim'
+"Plugin 'ntpeters/vim-better-whitespace'
+"Plugin 'rust-lang/rust.vim'
+"Plugin 'sareyko/neat.vim'
+"Plugin 'scrooloose/nerdtree'
+"Plugin 'scrooloose/syntastic'
+"Plugin 'tpope/vim-commentary'
+"Plugin 'tpope/vim-fugitive'
+"Plugin 'tpope/vim-sensible'
+"Plugin 'vim-ruby/vim-ruby'
+"
+"" Color schemes
+"Plugin 'altercation/vim-colors-solarized'
+"Plugin 'vim-airline/vim-airline-themes'
+"
+"" Finalize Vundle
+"call vundle#end()
 
-" Let Vundle manage itself
-Plugin 'gmarik/Vundle.vim'
-
-" Plugins
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'bling/vim-airline'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'davidoc/taskpaper.vim'
-Plugin 'elixir-lang/vim-elixir'
-Plugin 'junegunn/vim-easy-align'
-Plugin 'keith/swift.vim'
-Plugin 'ludovicchabant/vim-gutentags'
-Plugin 'majutsushi/tagbar'
-Plugin 'mileszs/ack.vim'
-Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'rust-lang/rust.vim'
-Plugin 'sareyko/neat.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-sensible'
-Plugin 'vim-ruby/vim-ruby'
-
-" Color schemes
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'vim-airline/vim-airline-themes'
-
-" Finalize Vundle
-call vundle#end()
 filetype plugin indent on
 
 " Switch syntax highlighting on, when the terminal has colors
