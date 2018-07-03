@@ -232,5 +232,5 @@ function! LoadLocal(path)
 endfunction
 
 call LoadLocal("~/.vimrc.local")
-call LoadLocal("~/_vimrc.local")
+call LoadLocal("$HOME\\_vimrc.local")
 call LoadLocal(".vimrc.local")
