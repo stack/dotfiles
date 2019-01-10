@@ -215,6 +215,11 @@ nmap ga <Plug>(EasyAlign)
 " Gutentags
 let g:gutentags_cache_dir = '~/.tags_cache'
 
+" UltiSnips
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
 " Better Git Committs
 autocmd Filetype gitcommit setlocal spell textwidth=72
 

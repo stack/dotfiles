@@ -73,3 +73,6 @@
 [submodule "vim/pack/stack/vim-airline-themes"]
 	path = vim/pack/stack/start/vim-airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes
+[submodule "vim/pack/stack/start/ultisnips"]
+	path = vim/pack/stack/start/ultisnips
+	url = https://github.com/SirVer/ultisnips.git
