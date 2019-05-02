@@ -1,42 +1,38 @@
 set nocompatible
 filetype off
 
-"set rtp+=~/.vim/bundle/Vundle.vim
-"set rtp+=~/_vim/bundle/Vundle.vim
-"call vundle#begin()
-"
-"" Let Vundle manage itself
-"Plugin 'gmarik/Vundle.vim'
-"
-"" Plugins
-"Plugin 'Xuyuanp/nerdtree-git-plugin'
-"Plugin 'airblade/vim-gitgutter'
-"Plugin 'bling/vim-airline'
-"Plugin 'christoomey/vim-tmux-navigator'
-"Plugin 'ctrlpvim/ctrlp.vim'
-"Plugin 'davidoc/taskpaper.vim'
-"Plugin 'elixir-lang/vim-elixir'
-"Plugin 'junegunn/vim-easy-align'
-"Plugin 'keith/swift.vim'
-"Plugin 'ludovicchabant/vim-gutentags'
-"Plugin 'majutsushi/tagbar'
-"Plugin 'mileszs/ack.vim'
-"Plugin 'ntpeters/vim-better-whitespace'
-"Plugin 'rust-lang/rust.vim'
-"Plugin 'sareyko/neat.vim'
-"Plugin 'scrooloose/nerdtree'
-"Plugin 'scrooloose/syntastic'
-"Plugin 'tpope/vim-commentary'
-"Plugin 'tpope/vim-fugitive'
-"Plugin 'tpope/vim-sensible'
-"Plugin 'vim-ruby/vim-ruby'
-"
-"" Color schemes
-"Plugin 'altercation/vim-colors-solarized'
-"Plugin 'vim-airline/vim-airline-themes'
-"
-"" Finalize Vundle
-"call vundle#end()
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/plugged')
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'airblade/vim-gitgutter'
+Plug 'bling/vim-airline'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'davidoc/taskpaper.vim'
+Plug 'elixir-lang/vim-elixir'
+Plug 'junegunn/vim-easy-align'
+Plug 'keith/swift.vim'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'majutsushi/tagbar'
+Plug 'mileszs/ack.vim'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'rust-lang/rust.vim'
+Plug 'sareyko/neat.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/syntastic'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-sensible'
+Plug 'vim-ruby/vim-ruby'
+Plug 'altercation/vim-colors-solarized'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'SirVer/ultisnips'
+call plug#end()
 
 filetype plugin indent on
 
