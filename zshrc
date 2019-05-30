@@ -75,17 +75,6 @@ if [ $? -eq 0 ]; then
   eval "$(swiftenv init -)"
 fi
 
-# jenv
-if [[ -d "$HOME/.jenv/bin" ]]; then
-  export PATH="$HOME/.jenv/bin:$PATH"
-fi
-
-command -v jenv >/dev/null 2>&1
-
-if [ $? -eq 0 ]; then
-  eval "$(jenv init -)"
-fi
-
 # binfiles
 if [[ -d "$HOME/Development/Support/binfiles" ]]; then
   export PATH="$HOME/Development/Support/binfiles:$PATH"
