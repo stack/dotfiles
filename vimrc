@@ -66,17 +66,14 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'do': 'bash install.sh'
     \ }
 
-" Previous plugins
-"Plug 'christoomey/vim-tmux-navigator'
-"Plug 'ctrlpvim/ctrlp.vim'
-"Plug 'elixir-lang/vim-elixir'
-"Plug 'ludovicchabant/vim-gutentags'
-"Plug 'majutsushi/tagbar'
-"Plug 'sareyko/neat.vim'
-"Plug 'scrooloose/syntastic'
-"Plug 'tpope/vim-commentary'
-"Plug 'tpope/vim-sensible'
-"Plug 'SirVer/ultisnips'
+if has('nvim')
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+    Plug 'Shougo/deoplete.nvim'
+    Plug 'roxma/nvim-yarp'
+    Plug 'roxma/vim-hug-neovim-rpc'
+endif
+
 call plug#end()
 
 " Color scheme
@@ -88,9 +85,16 @@ else
     colorscheme default
 endif
 
-" Display hidden characters
-"set list
-"set listchars=tab:▸\ ,eol: 
+" Fonts
+if has('gui_gtk2')
+    set guifont=DejaVu\ Sans\ Mono\ 10
+elseif has('gui_gtk3')
+    set guifont=DejaVu\ Sans\ Mono\ 10
+elseif has('gui_win32')
+    set guifont=Consolas:h12
+elseif has('gui_macvim')
+    set guifont=Menlo:h12
+endif
 
 " Numbers
 set number
@@ -130,11 +134,12 @@ au FileType ruby setl softtabstop=2 shiftwidth=2 expandtab
 " Automatic indentation
 set autoindent
 
-" Stip all trailing whitespace
+" Strip all trailing whitespace
 nnoremap <leader>f :StripWhitespace<cr>
 
-" Toggle NerdTree
+" NerdTree
 nnoremap <leader>d :NERDTreeToggle<cr>
+let NERDTreeIgnore = ['\.a$', '\.la$', '\.lo$', '\.o']
 
 " No more write typos
 cmap Wq wq
@@ -182,6 +187,9 @@ let g:LanguageClient_serverCommands = {
     \ }
 
 nnoremap <F5> :call LanguageClient_contextMenu()<cr>
+
+" Deoplete
+let g:deoplete#enable_at_startup = 1
 
 " Local config
 function! LoadLocal(path)
