@@ -93,7 +93,7 @@ elseif has('gui_gtk3')
 elseif has('gui_win32')
     set guifont=Consolas:h12
 elseif has('gui_macvim')
-    set guifont=Menlo:h12
+    set guifont=SFMono-Regular:h11
 endif
 
 " Numbers
