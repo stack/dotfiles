@@ -148,25 +148,20 @@ cmap Wq wq
 let g:AutoPairsMultilineClose=0
 let g:AutoPairsMapSpace=0
 
-" Column limits
-set textwidth=110
-set colorcolumn=110
+" Column limits per file type
+autocmd Filetype gitcommit setlocal textwidth=72
+autocmd Filetype gitcommit setlocal colorcolumn=72
 
-nnoremap <leader>c :call ToggleColumnWidth()<cr>
+autocmd Filetype markdown setlocal textwidth=80
+autocmd Filetype markdown setlocal colorcolumn=80
 
-let g:wide_column = 1
+autocmd Filetype text setlocal textwidth=80
+autocmd Filetype text setlocal colorcolumn=80
 
-function! ToggleColumnWidth()
-    if g:wide_column
-        set textwidth=80
-        set colorcolumn=80
-        let g:wide_column = 0
-    else
-        set textwidth=110
-        set colorcolumn=110
-        let g:wide_column = 1
-    endif
-endfunction
+" Automatic spell checking
+autocmd Filetype gitcommit setlocal spell
+autocmd Filetype markdown setlocal spell
+autocmd Filetype text setlocal spell
 
 " FZF
 if executable('fzf')
@@ -179,6 +174,8 @@ if executable('ag')
 endif
 
 " LSP
+set hidden
+
 let g:LanguageClient_serverCommands = {
     \ 'c': ['clangd'],
     \ 'cpp': ['clangd'],
@@ -187,9 +184,14 @@ let g:LanguageClient_serverCommands = {
     \ }
 
 nnoremap <F5> :call LanguageClient_contextMenu()<cr>
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<cr>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<cr>
 
 " Deoplete
 let g:deoplete#enable_at_startup = 1
+
+" Markdown
+let g:vim_markdown_folding_disabled = 1
 
 " Local config
 function! LoadLocal(path)
