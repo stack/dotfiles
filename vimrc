@@ -121,6 +121,15 @@ set backspace=indent,eol,start
 set autowrite
 set autoread
 
+" Split right / bottom
+set splitright
+set splitbelow
+
+nmap <silent> <A-Up> :wincmd k<cr>
+nmap <silent> <A-Down> :wincmd j<cr>
+nmap <silent> <A-Left> :wincmd h<cr>
+nmap <silent> <A-Right> :wincmd l<cr>
+
 " Tab settings
 set shiftwidth=4
 set tabstop=4
