@@ -15,6 +15,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
 
 " Specific languages
+Plug 'CaffeineViking/vim-glsl'
 Plug 'cespare/vim-toml'
 Plug 'davidoc/taskpaper.vim'
 Plug 'fatih/vim-go'
@@ -31,11 +32,8 @@ Plug 'bling/vim-airline'
 Plug 'altercation/vim-colors-solarized'
 Plug 'vim-airline/vim-airline-themes'
 
-" Matching braces
-Plug 'jiangmiao/auto-pairs'
-
 " Better commenting
-Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-commentary'
 
 " Find dangling whitespace
 Plug 'ntpeters/vim-better-whitespace'
@@ -55,16 +53,20 @@ Plug 'junegunn/fzf'
 Plug 'mileszs/ack.vim'
 
 " Alignment
-Plug 'junegunn/vim-easy-align'
+Plug 'tommcdo/vim-lion'
 
 " LSP
-" Plug 'prabirshrestha/async.vim'
-" Plug 'prabirshrestha/vim-lsp'
-
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh'
-    \ }
+if has('win32')
+    Plug 'autozimu/LanguageClient-neovim', {
+        \ 'branch': 'next',
+        \ 'do': 'powershell -executionpolicy bypass -File install.ps1'
+        \ }
+else
+    Plug 'autozimu/LanguageClient-neovim', {
+        \ 'branch': 'next',
+        \ 'do': 'bash install.sh'
+        \ }
+endif
 
 if has('nvim')
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -181,6 +183,9 @@ endif
 if executable('ag')
     let g:ackprg = 'ag --vimgrep'
 endif
+
+" Alignment
+let g:lion_squeeze_spaces = 1
 
 " LSP
 set hidden
