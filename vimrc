@@ -2,10 +2,18 @@
 let mapleader = ","
 
 " Install Plug if it isn't installed
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+if has("win32")
+    if empty(glob("$HOME\\vimfiles\\autoload\\plug.vim"))
+      silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+      autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+    endif
+else
+    if empty(glob('~/.vim/autoload/plug.vim'))
+      silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+      autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+    endif
 endif
 
 " Define all of the plugins
@@ -15,6 +23,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
 
 " Specific languages
+Plug 'CaffeineViking/vim-glsl'
 Plug 'cespare/vim-toml'
 Plug 'davidoc/taskpaper.vim'
 Plug 'fatih/vim-go'
@@ -31,11 +40,8 @@ Plug 'bling/vim-airline'
 Plug 'altercation/vim-colors-solarized'
 Plug 'vim-airline/vim-airline-themes'
 
-" Matching braces
-Plug 'jiangmiao/auto-pairs'
-
 " Better commenting
-Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-commentary'
 
 " Find dangling whitespace
 Plug 'ntpeters/vim-better-whitespace'
@@ -55,16 +61,20 @@ Plug 'junegunn/fzf'
 Plug 'mileszs/ack.vim'
 
 " Alignment
-Plug 'junegunn/vim-easy-align'
+Plug 'tommcdo/vim-lion'
 
 " LSP
-" Plug 'prabirshrestha/async.vim'
-" Plug 'prabirshrestha/vim-lsp'
-
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh'
-    \ }
+if has('win32')
+    Plug 'autozimu/LanguageClient-neovim', {
+        \ 'branch': 'next',
+        \ 'do': 'powershell -executionpolicy bypass -File install.ps1'
+        \ }
+else
+    Plug 'autozimu/LanguageClient-neovim', {
+        \ 'branch': 'next',
+        \ 'do': 'bash install.sh'
+        \ }
+endif
 
 if has('nvim')
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -121,6 +131,15 @@ set backspace=indent,eol,start
 set autowrite
 set autoread
 
+" Split right / bottom
+set splitright
+set splitbelow
+
+nmap <silent> <A-Up> :wincmd k<cr>
+nmap <silent> <A-Down> :wincmd j<cr>
+nmap <silent> <A-Left> :wincmd h<cr>
+nmap <silent> <A-Right> :wincmd l<cr>
+
 " Tab settings
 set shiftwidth=4
 set tabstop=4
@@ -172,6 +191,9 @@ endif
 if executable('ag')
     let g:ackprg = 'ag --vimgrep'
 endif
+
+" Alignment
+let g:lion_squeeze_spaces = 1
 
 " LSP
 set hidden
