@@ -1,10 +1,13 @@
 " Comma is the map leader
 let mapleader = ","
 
+" Force UTF-8
+set encoding=utf-8
+
 " Install Plug if it isn't installed
 if has("win32")
     if empty(glob("$HOME\\vimfiles\\autoload\\plug.vim"))
-      silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+      silent !curl -fLo "$HOME\\vimfiles\\autoload\\plug.vim" --create-dirs
         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
       autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
     endif
@@ -29,6 +32,7 @@ Plug 'fatih/vim-go'
 Plug 'keith/swift.vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'rust-lang/rust.vim'
+Plug 'tikhomirov/vim-glsl'
 Plug 'uarun/vim-protobuf'
 Plug 'vim-ruby/vim-ruby'
 
@@ -69,10 +73,17 @@ Plug 'junegunn/vim-easy-align'
 " Plug 'prabirshrestha/async.vim'
 " Plug 'prabirshrestha/vim-lsp'
 
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh'
-    \ }
+if has("win32")
+    Plug 'autozimu/LanguageClient-neovim', {
+        \ 'branch': 'next',
+        \ 'do': 'powershell --executionpolicy bypass -File install.ps1'
+        \ }
+else
+    Plug 'autozimu/LanguageClient-neovim', {
+        \ 'branch': 'next',
+        \ 'do': 'bash install.sh'
+        \ }
+endif
 
 if has('nvim')
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -137,6 +148,9 @@ nmap <silent> <A-Up> :wincmd k<cr>
 nmap <silent> <A-Down> :wincmd j<cr>
 nmap <silent> <A-Left> :wincmd h<cr>
 nmap <silent> <A-Right> :wincmd l<cr>
+
+nmap <silent> <M-}> :tabnext<cr>
+nmap <silent> <M-{> :tabprevious<cr>
 
 " Tab settings
 set shiftwidth=4
