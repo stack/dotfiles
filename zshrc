@@ -63,18 +63,6 @@ if [ $? -eq 0 ]; then
   eval "$(rbenv init -)"
 fi
 
-# swiftenv
-if [[ -d "$HOME/.swiftenv" ]]; then
-  export SWIFTENV_ROOT="$HOME/.swiftenv"
-  export PATH="$SWIFTENV_ROOT/bin:$PATH"
-fi
-
-command -v swiftenv >/dev/null 2>&1
-
-if [ $? -eq 0 ]; then
-  eval "$(swiftenv init -)"
-fi
-
 # binfiles
 if [[ -d "$HOME/Development/Support/binfiles" ]]; then
   export PATH="$HOME/Development/Support/binfiles:$PATH"
@@ -92,20 +80,6 @@ if [[ -d "$HOME/Library/Android/sdk/ndk-bundle" ]]; then
   export PATH="$ANDROID_NDK_ROOT:$PATH"
 fi
 
-# NaCL SDK
-if [[ -d "/usr/local/nacl_sdk/pepper_35" ]]; then
-  export NACL_SDK_ROOT="/usr/local/nacl_sdk/pepper_35"
-elif [[ -d "/opt/nacl_sdk/pepper_35" ]]; then
-  export NACL_SDK_ROOT="/opt/nacl_sdk/pepper_35"
-fi
-
-# Depot Tools
-if [[ -d "/usr/local/depot_tools" ]]; then
-  export PATH="$PATH:/usr/local/depot_tools"
-elif [[ -d "/opt/depot_tools" ]]; then
-  export PATH="$PATH:/opt/depot_tools"
-fi
-
 # Personal bin for Mac OS X
 if [[ -d "$HOME/Library/bin" ]]; then
   export PATH="$PATH:$HOME/Library/bin"
@@ -121,7 +95,7 @@ elif [[ "$unamestr" == 'Linux' ]]; then
 fi
 
 if [[ $platform == 'macosx' ]]; then
-  export EDITOR="mvim -f"
+  export EDITOR='mvim -f --nomru -c "au VimLeave * !open -a Terminal"'
 elif [[ $platform == 'linux' ]]; then
   export EDITOR="gvim -f"
 else
@@ -133,10 +107,4 @@ fi
 
 # Rust, Cargo, etc.
 [ -f ~/.cargo/env ] && source ~/.cargo/env
-
-# The Fuck!?
-THEFUCK=`command -v thefuck`
-if [ "$?" -eq "0" ]; then
-  eval "$(thefuck --alias)"
-fi
 
