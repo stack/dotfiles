@@ -26,7 +26,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
 
 " Specific languages
-Plug 'CaffeineViking/vim-glsl'
+Plug 'tikhomirov/vim-glsl'
 Plug 'cespare/vim-toml'
 Plug 'davidoc/taskpaper.vim'
 Plug 'fatih/vim-go'

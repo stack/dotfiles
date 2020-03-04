@@ -52,6 +52,11 @@ export PATH="/sbin:/usr/sbin:$PATH"
 # Homebrew
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 
+# MacVim
+if [[ -d "/Applications/MacVim.app/Contents/bin" ]]; then
+  export PATH="/Applications/MacVim.app/Contents/bin:$PATH"
+fi
+
 # rbenv
 if [[ -d "$HOME/.rbenv/bin" ]]; then
   export PATH="$HOME/.rbenv/bin:$PATH"
