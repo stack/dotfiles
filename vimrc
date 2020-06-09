@@ -219,6 +219,11 @@ nnoremap <silent> gd :call LanguageClient#textDocument_definition()<cr>
 " Deoplete
 let g:deoplete#enable_at_startup = 1
 
+call deoplete#custom#option({
+    \ 'auto_complete_delay': 200,
+    \ 'max_list': 10,
+    \ })
+
 " Markdown
 let g:vim_markdown_folding_disabled = 1
 
