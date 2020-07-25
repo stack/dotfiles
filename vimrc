@@ -178,11 +178,11 @@ let g:AutoPairsMapSpace=0
 autocmd Filetype gitcommit setlocal textwidth=72
 autocmd Filetype gitcommit setlocal colorcolumn=72
 
-autocmd Filetype markdown setlocal textwidth=80
-autocmd Filetype markdown setlocal colorcolumn=80
+autocmd Filetype markdown setlocal textwidth=120
+autocmd Filetype markdown setlocal colorcolumn=120
 
-autocmd Filetype text setlocal textwidth=80
-autocmd Filetype text setlocal colorcolumn=80
+autocmd Filetype text setlocal textwidth=120
+autocmd Filetype text setlocal colorcolumn=120
 
 " Automatic spell checking
 autocmd Filetype gitcommit setlocal spell
