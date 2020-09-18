@@ -4,7 +4,7 @@ let mapleader = ","
 " Install Plug if it isn't installed
 if has("win32")
     if empty(glob("$HOME\\vimfiles\\autoload\\plug.vim"))
-      silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+      silent !curl -fLo $HOME\\vimfiles\\autoload\\plug.vim --create-dirs
         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
       autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
     endif
