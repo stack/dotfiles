@@ -88,6 +88,9 @@ else
     Plug 'roxma/vim-hug-neovim-rpc'
 endif
 
+" Snippets
+Plug 'SirVer/ultisnips'
+
 call plug#end()
 
 " Color scheme
@@ -226,6 +229,12 @@ call deoplete#custom#option({
 
 " Markdown
 let g:vim_markdown_folding_disabled = 1
+
+" Snippets
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsListSnippets="<c-tab>"
 
 " Local config
 function! LoadLocal(path)
