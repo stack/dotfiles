@@ -41,6 +41,11 @@ if [ -f "$HOME/.zshrc.local" ]; then
     source "$HOME/.zshrc.local"
 fi
 
+# Homebrew
+export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
+export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+
+# Oh My ZSH
 source $ZSH/oh-my-zsh.sh
 
 # Re-inject search
@@ -48,9 +53,6 @@ bindkey '^R' history-incremental-search-backward
 
 # Fix sbin on Mac
 export PATH="/sbin:/usr/sbin:$PATH"
-
-# Homebrew
-export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 
 # MacVim
 if [[ -d "/Applications/MacVim.app/Contents/bin" ]]; then
