@@ -113,3 +113,13 @@ fi
 # Rust, Cargo, etc.
 [ -f ~/.cargo/env ] && source ~/.cargo/env
 
+# NVM
+export NVM_DIR="$HOME/.nvm"
+
+if [[ -d "/usr/local/opt/nvm" ]]; then
+  [ -s "/usr/local/opt/nvm/nvm.sh" ] && source "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && source "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+fi
+
+# EMSDK
+# [ -f ~/Development/Support/emsdk/emsdk_env.sh ] && source ~/Development/Support/emsdk/emsdk_env.sh
