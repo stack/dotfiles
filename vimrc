@@ -224,13 +224,10 @@ let g:lion_squeeze_spaces = 1
 " nnoremap <F5> :call LanguageClient_contextMenu()<cr>
 " nnoremap <silent> K :call LanguageClient#textDocument_hover()<cr>
 " nnoremap <silent> gd :call LanguageClient#textDocument_definition()<cr>
-<<<<<<< HEAD
 nmap <F5> <Plug>(lcn-menu)
 nmap <silent>K <Plug>(lcn-hover)
 nmap <silent> gd <Plug>(lcn-definition)
 nmap <silent> <F2> <Plug>(lcn-rename)
-=======
->>>>>>> 05bf2854aa1307cdc4da5ccc315af816ac24fd05
 
 " " Deoplete
 " let g:deoplete#enable_at_startup = 1
