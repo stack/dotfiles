@@ -36,6 +36,7 @@ Plug 'rust-lang/rust.vim'
 Plug 'tikhomirov/vim-glsl'
 Plug 'uarun/vim-protobuf'
 Plug 'vim-ruby/vim-ruby'
+Plug 'ziglang/zig.vim'
 
 " Pretty status bars
 Plug 'bling/vim-airline'
@@ -68,28 +69,33 @@ Plug 'mileszs/ack.vim'
 Plug 'tommcdo/vim-lion'
 
 " LSP
-if has("win32")
-    Plug 'autozimu/LanguageClient-neovim', {
-        \ 'branch': 'dev',
-        \ 'do': 'powershell --executionpolicy bypass -File install.ps1'
-        \ }
-else
-    Plug 'autozimu/LanguageClient-neovim', {
-        \ 'branch': 'dev',
-        \ 'do': 'bash install.sh'
-        \ }
-endif
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'ajh17/vimcompletesme'
 
-if has('nvim')
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-    Plug 'Shougo/deoplete.nvim'
-    Plug 'roxma/nvim-yarp'
-    Plug 'roxma/vim-hug-neovim-rpc'
-endif
+" LSP
+" if has("win32")
+"     Plug 'autozimu/LanguageClient-neovim', {
+"         \ 'branch': 'dev',
+"         \ 'do': 'powershell --executionpolicy bypass -File install.ps1'
+"         \ }
+" else
+"     Plug 'autozimu/LanguageClient-neovim', {
+"         \ 'branch': 'dev',
+"         \ 'do': 'bash install.sh'
+"         \ }
+" endif
 
-" Snippets
-Plug 'SirVer/ultisnips'
+" if has('nvim')
+"     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" else
+"     Plug 'Shougo/deoplete.nvim'
+"     Plug 'roxma/nvim-yarp'
+"     Plug 'roxma/vim-hug-neovim-rpc'
+" endif
+
+" " Snippets
+" Plug 'SirVer/ultisnips'
 
 call plug#end()
 
@@ -206,39 +212,58 @@ endif
 let g:lion_squeeze_spaces = 1
 
 " LSP
-set hidden
+" set hidden
 
-let g:LanguageClient_serverCommands = {
-    \ 'c': ['clangd'],
-    \ 'cpp': ['clangd'],
-    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-    \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
-    \ }
+" let g:LanguageClient_serverCommands = {
+"     \ 'c': ['clangd'],
+"     \ 'cpp': ['clangd'],
+"     \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+"     \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
+"     \ }
 
 " nnoremap <F5> :call LanguageClient_contextMenu()<cr>
 " nnoremap <silent> K :call LanguageClient#textDocument_hover()<cr>
 " nnoremap <silent> gd :call LanguageClient#textDocument_definition()<cr>
+<<<<<<< HEAD
 nmap <F5> <Plug>(lcn-menu)
 nmap <silent>K <Plug>(lcn-hover)
 nmap <silent> gd <Plug>(lcn-definition)
 nmap <silent> <F2> <Plug>(lcn-rename)
+=======
+>>>>>>> 05bf2854aa1307cdc4da5ccc315af816ac24fd05
 
-" Deoplete
-let g:deoplete#enable_at_startup = 1
+" " Deoplete
+" let g:deoplete#enable_at_startup = 1
 
-call deoplete#custom#option({
-    \ 'auto_complete_delay': 200,
-    \ 'max_list': 10,
-    \ })
+" call deoplete#custom#option({
+"     \ 'auto_complete_delay': 200,
+"     \ 'max_list': 10,
+"     \ })
 
 " Markdown
 let g:vim_markdown_folding_disabled = 1
 
 " Snippets
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-let g:UltiSnipsListSnippets="<c-tab>"
+" let g:UltiSnipsExpandTrigger="<tab>"
+" let g:UltiSnipsJumpForwardTrigger="<c-b>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" let g:UltiSnipsListSnippets="<c-tab>"
+
+" LSP
+if executable('clangd')
+    augroup lsp_clangd
+        autocmd!
+        autocmd User lsp_setup call lsp#register_server({
+                    \ 'name': 'clangd',
+                    \ 'cmd': {server_info->['clangd']},
+                    \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
+                    \ })
+        autocmd FileType c setlocal omnifunc=lsp#complete
+        autocmd FileType cpp setlocal omnifunc=lsp#complete
+        autocmd FileType objc setlocal omnifunc=lsp#complete
+        autocmd FileType objcpp setlocal omnifunc=lsp#complete
+    augroup end
+endif
 
 " Local config
 function! LoadLocal(path)
