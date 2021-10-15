@@ -70,12 +70,12 @@ Plug 'tommcdo/vim-lion'
 " LSP
 if has("win32")
     Plug 'autozimu/LanguageClient-neovim', {
-        \ 'branch': 'next',
+        \ 'branch': 'dev',
         \ 'do': 'powershell --executionpolicy bypass -File install.ps1'
         \ }
 else
     Plug 'autozimu/LanguageClient-neovim', {
-        \ 'branch': 'next',
+        \ 'branch': 'dev',
         \ 'do': 'bash install.sh'
         \ }
 endif
@@ -215,9 +215,13 @@ let g:LanguageClient_serverCommands = {
     \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
     \ }
 
-nnoremap <F5> :call LanguageClient_contextMenu()<cr>
-nnoremap <silent> K :call LanguageClient#textDocument_hover()<cr>
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<cr>
+" nnoremap <F5> :call LanguageClient_contextMenu()<cr>
+" nnoremap <silent> K :call LanguageClient#textDocument_hover()<cr>
+" nnoremap <silent> gd :call LanguageClient#textDocument_definition()<cr>
+nmap <F5> <Plug>(lcn-menu)
+nmap <silent>K <Plug>(lcn-hover)
+nmap <silent> gd <Plug>(lcn-definition)
+nmap <silent> <F2> <Plug>(lcn-rename)
 
 " Deoplete
 let g:deoplete#enable_at_startup = 1
