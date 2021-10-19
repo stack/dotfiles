@@ -70,32 +70,9 @@ Plug 'tommcdo/vim-lion'
 
 " LSP
 Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/vim-lsp'
-Plug 'ajh17/vimcompletesme'
-
-" LSP
-" if has("win32")
-"     Plug 'autozimu/LanguageClient-neovim', {
-"         \ 'branch': 'dev',
-"         \ 'do': 'powershell --executionpolicy bypass -File install.ps1'
-"         \ }
-" else
-"     Plug 'autozimu/LanguageClient-neovim', {
-"         \ 'branch': 'dev',
-"         \ 'do': 'bash install.sh'
-"         \ }
-" endif
-
-" if has('nvim')
-"     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" else
-"     Plug 'Shougo/deoplete.nvim'
-"     Plug 'roxma/nvim-yarp'
-"     Plug 'roxma/vim-hug-neovim-rpc'
-" endif
-
-" " Snippets
-" Plug 'SirVer/ultisnips'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
 call plug#end()
 
@@ -211,56 +188,55 @@ endif
 " Alignment
 let g:lion_squeeze_spaces = 1
 
-" LSP
-" set hidden
-
-" let g:LanguageClient_serverCommands = {
-"     \ 'c': ['clangd'],
-"     \ 'cpp': ['clangd'],
-"     \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-"     \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
-"     \ }
-
-" nnoremap <F5> :call LanguageClient_contextMenu()<cr>
-" nnoremap <silent> K :call LanguageClient#textDocument_hover()<cr>
-" nnoremap <silent> gd :call LanguageClient#textDocument_definition()<cr>
-nmap <F5> <Plug>(lcn-menu)
-nmap <silent>K <Plug>(lcn-hover)
-nmap <silent> gd <Plug>(lcn-definition)
-nmap <silent> <F2> <Plug>(lcn-rename)
-
-" " Deoplete
-" let g:deoplete#enable_at_startup = 1
-
-" call deoplete#custom#option({
-"     \ 'auto_complete_delay': 200,
-"     \ 'max_list': 10,
-"     \ })
-
 " Markdown
 let g:vim_markdown_folding_disabled = 1
 
-" Snippets
-" let g:UltiSnipsExpandTrigger="<tab>"
-" let g:UltiSnipsJumpForwardTrigger="<c-b>"
-" let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-" let g:UltiSnipsListSnippets="<c-tab>"
-
 " LSP
 if executable('clangd')
-    augroup lsp_clangd
-        autocmd!
-        autocmd User lsp_setup call lsp#register_server({
-                    \ 'name': 'clangd',
-                    \ 'cmd': {server_info->['clangd']},
-                    \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
-                    \ })
-        autocmd FileType c setlocal omnifunc=lsp#complete
-        autocmd FileType cpp setlocal omnifunc=lsp#complete
-        autocmd FileType objc setlocal omnifunc=lsp#complete
-        autocmd FileType objcpp setlocal omnifunc=lsp#complete
-    augroup end
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'clangd',
+        \ 'cmd': {server_info->['clangd']},
+        \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
+        \ })
+
+    autocmd FileType c setlocal omnifunc=lsp#complete
+    autocmd FileType cpp setlocal omnifunc=lsp#complete
+    autocmd FileType objc setlocal omnifunc=lsp#complete
+    autocmd FileType objcpp setlocal omnifunc=lsp#complete
 endif
+
+if executable('solargraph')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'solargraph',
+        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'solargraph stdio']},
+        \ 'whitelist': ['ruby'],
+        \ })
+endif
+
+if executable('sourcekit-lsp')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'sourcekit-lsp',
+        \ 'cmd': {server_info->['sourcekit-lsp']},
+        \ 'whitelist': ['swift'],
+        \ })
+
+    autocmd FileType swift setlocal omnifunc=lsp#complete
+    autocmd FileType swift nnoremap <C-]> :LspDefinition<CR>
+endif
+
+" Completion
+let g:asyncomplete_auto_popup = 0
+
+function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <TAB>
+    \ pumvisible() ? "\<C-n>" :
+    \ <SID>check_back_space() ? "\<TAB>" :
+    \ asyncomplete#force_refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 " Local config
 function! LoadLocal(path)
