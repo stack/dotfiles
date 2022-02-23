@@ -141,6 +141,7 @@ set expandtab
 set smarttab
 
 au FileType html setl softtabstop=2 shiftwidth=2 expandtab
+au FileType javascript setl softtabstop=2 shiftwidth=2 expandtab
 au FileType ruby setl softtabstop=2 shiftwidth=2 expandtab
 
 " Automatic indentation
