@@ -32,6 +32,7 @@ Plug 'davidoc/taskpaper.vim'
 Plug 'fatih/vim-go'
 Plug 'keith/swift.vim'
 Plug 'plasticboy/vim-markdown'
+Plug 'posva/vim-vue'
 Plug 'rust-lang/rust.vim'
 Plug 'tikhomirov/vim-glsl'
 Plug 'uarun/vim-protobuf'
@@ -143,6 +144,7 @@ set smarttab
 au FileType html setl softtabstop=2 shiftwidth=2 expandtab
 au FileType javascript setl softtabstop=2 shiftwidth=2 expandtab
 au FileType ruby setl softtabstop=2 shiftwidth=2 expandtab
+au FileType vue setl softtabstop=2 shiftwidth=2 expandtab
 
 " Automatic indentation
 set autoindent
