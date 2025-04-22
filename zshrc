@@ -101,9 +101,11 @@ elif [[ "$unamestr" == 'Linux' ]]; then
   platform='linux'
 fi
 
-if [[ $platform == 'macosx' ]]; then
+if hash zed 2>/dev/null; then
+  export EDITOR='zed --wait'
+elif hash mvim 2>/dev/null; then
   export EDITOR='mvim -f --nomru -c "au VimLeave * !open -a Terminal"'
-elif [[ $platform == 'linux' ]]; then
+elif hash gvim 2>/dev/null; then
   export EDITOR="gvim -f"
 else
   export EDITOR="vi"
